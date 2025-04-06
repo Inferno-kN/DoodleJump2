@@ -9,5 +9,8 @@ class Background:
         self.rectangle.topleft = (0, 0)
         self.speed = 1
 
-    def update(self): #потом
+    def update(self):
        pass
+
+    def draw(self, surface):
+        surface.blit(self.image, self.rectangle)
