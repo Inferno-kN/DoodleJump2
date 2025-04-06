@@ -12,3 +12,5 @@ class Platform(pygame.sprite.Sprite):
         self.rectangle.y = y
 
 
+    def draw(self, surface):
+        surface.blit(self.image, self.rectangle)
