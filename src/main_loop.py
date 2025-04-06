@@ -1,7 +1,5 @@
 import random
-
 import pygame
-
 from game_over import GameOver
 from platform import Platform
 from player import Player
