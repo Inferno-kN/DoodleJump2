@@ -43,4 +43,10 @@ class MainLoop:
             self.player.update(self.platforms)
             self.background.update()
 
- 
+
+        if self.player.rectangle.top <= HEIGHT / 3: # добавляем прокрутку экрана
+            scroll_amount = abs(self.player.velocity.y)
+            self.player.position.y += scroll_amount
+            self.player.rectangle.y = self.player.position.y
+
+            
