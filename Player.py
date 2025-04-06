@@ -22,4 +22,9 @@ class Player(pygame.sprite.Sprite):
             self.acceleration.x = -0.8
         if keys[pygame.K_RIGHT]:
             self.acceleration.x = 0.8
+        self.friction()
+        self.physics()
+        self.limitation_screen()
+        self.check_user(platforms)
+
         
