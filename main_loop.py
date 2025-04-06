@@ -2,7 +2,7 @@ import random
 
 import pygame
 
-from GameOver import GameOver
+from game_over import GameOver
 from Platform import Platform
 from Player import Player
 from settings import WIDTH, HEIGHT, FPS, PLATFORM_WIDTH, clock, PLATFORM_HEIGHT, screen
