@@ -58,3 +58,5 @@ class Player(pygame.sprite.Sprite):
     def update_score(self):
         self.score.update()
 
+    def draw(self, surface):
+        surface.blit(self.image, self.rectangle)
