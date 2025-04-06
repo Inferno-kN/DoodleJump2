@@ -24,4 +24,10 @@ class MainLoop:
 
 
     def run(self):
-        pass
+        while self.is_game_starting:
+            self.clock.tick(FPS)  # Используем self.clock
+            self.handle_events()
+            self.update()
+            self.draw()
+
+    
