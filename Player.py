@@ -18,4 +18,5 @@ class Player(pygame.sprite.Sprite):
     def update(self, platforms):
         self.acceleration = pygame.math.Vector2(0, settings.GRAVITY)
         keys = pygame.key.get_pressed()
-        
+        if keys[pygame.K_LEFT]:
+            self.acceleration.x = -0.8
