@@ -55,3 +55,6 @@ class Player(pygame.sprite.Sprite):
                     self.update_score()
                     break
 
+    def update_score(self):
+        self.score.update()
+
