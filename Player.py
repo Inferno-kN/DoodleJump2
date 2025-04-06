@@ -12,4 +12,7 @@ class Player(pygame.sprite.Sprite):
         self.rectangle.center = (settings.WIDTH / 2, settings.HEIGHT / 2)
         self.position = pygame.math.Vector2(self.rectangle.center)
         self.velocity = pygame.math.Vector2(0, 0)
-        
+        self.acceleration = pygame.math.Vector2(0, 0)
+        self.score = Score()
+
+    
