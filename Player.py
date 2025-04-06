@@ -27,4 +27,8 @@ class Player(pygame.sprite.Sprite):
         self.limitation_screen()
         self.check_user(platforms)
 
-        
+        # Трение (рефакторинг)
+
+    def friction(self):
+        self.acceleration.x += self.velocity.x * -0.12
+
