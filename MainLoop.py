@@ -30,4 +30,5 @@ class MainLoop:
             self.update()
             self.draw()
 
-    
+    def handle_events(self):
+        pass
