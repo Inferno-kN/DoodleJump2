@@ -13,7 +13,7 @@ class GameOver:
 
         score_text = self.font.render(f"Счёт: {score}", True, settings.WHITE)
         score_rect = score_text.get_rect(center=(settings.WIDTH / 2, settings.HEIGHT / 2 + 20))
-        surface.blit(score_rect, score_text)
+        surface.blit(score_text, score_rect)
 
         restart_text = self.font.render("Нажмите R для рестарта", True, settings.WHITE)
         restart_rect = restart_text.get_rect(center=(settings.WIDTH / 2, settings.HEIGHT / 2 + 60))
