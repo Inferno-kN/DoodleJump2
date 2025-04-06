@@ -31,4 +31,10 @@ class MainLoop:
             self.draw()
 
     def handle_events(self):
-        pass
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.is_game_starting = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r and not self.game_running:
+                    self.restart_game()
+
