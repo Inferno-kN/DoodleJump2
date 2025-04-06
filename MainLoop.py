@@ -23,3 +23,5 @@ class MainLoop:
         self.game_running = True
 
 
+    def run(self):
+        pass
