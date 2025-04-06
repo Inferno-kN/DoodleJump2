@@ -46,4 +46,9 @@ class Player(pygame.sprite.Sprite):
 
         self.rectangle.center = round(self.position.x), round(self.position.y)
 
-    
+    def check_user(self, platforms):
+        # проверка на столкновение игрока
+        if self.velocity.y > 0:
+            for platform in platforms:
+                if self.rectangle.colliderect(platform.rectangle):
+                    self.velocity.y = settings.JUMP_HEIGHT
