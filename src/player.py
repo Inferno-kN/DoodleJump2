@@ -1,6 +1,6 @@
 import pygame
 from configs import settings
-from score import Score
+from src.score import Score
 
 
 class Player(pygame.sprite.Sprite):

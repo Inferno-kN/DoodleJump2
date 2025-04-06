@@ -1,11 +1,11 @@
 import random
 import pygame
-from game_over import GameOver
-from platform import Platform
-from player import Player
+from src.game_over import GameOver
+from src.platform import Platform
+from src.player import Player
 from configs.settings import WIDTH, HEIGHT, FPS, PLATFORM_WIDTH, clock, PLATFORM_HEIGHT, screen
-from background import Background
-from score import Score
+from src.background import Background
+from src.score import Score
 
 class MainLoop:
     def __init__(self):
