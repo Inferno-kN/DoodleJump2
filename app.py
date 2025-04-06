@@ -1,5 +1,5 @@
 import pygame
-from MainLoop import MainLoop
+from main_loop import MainLoop
 
 if __name__ == "__main__":
     pygame.init()
