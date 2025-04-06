@@ -9,3 +9,6 @@ class Background:
         self.rectangle.topleft = (0, 0)
         self.speed = 1
 
+    def update(self):
+       pass
+
