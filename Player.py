@@ -37,4 +37,11 @@ class Player(pygame.sprite.Sprite):
         self.velocity += self.acceleration
         self.position += self.velocity + 0.5 * self.acceleration
 
-    
+    def limitation_screen(self):
+        # Ограничение по экрану
+        if self.position.x < 0:
+            self.position.x = settings.WIDTH
+        if self.position.x > settings.WIDTH:
+            self.position.x = settings.WIDTH
+
+        
