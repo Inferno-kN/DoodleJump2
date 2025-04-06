@@ -15,4 +15,7 @@ class Player(pygame.sprite.Sprite):
         self.acceleration = pygame.math.Vector2(0, 0)
         self.score = Score()
 
-    
+    def update(self, platforms):
+        self.acceleration = pygame.math.Vector2(0, settings.GRAVITY)
+        keys = pygame.key.get_pressed()
+        
