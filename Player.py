@@ -32,3 +32,9 @@ class Player(pygame.sprite.Sprite):
     def friction(self):
         self.acceleration.x += self.velocity.x * -0.12
 
+    def physics(self):
+        # Физика (рефакторинг)
+        self.velocity += self.acceleration
+        self.position += self.velocity + 0.5 * self.acceleration
+
+    
