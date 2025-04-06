@@ -80,3 +80,5 @@ class MainLoop:
         self.platforms = [Platform(WIDTH / 2 - PLATFORM_WIDTH / 2, 500)]
         self.platforms.extend([Platform(random.randint(0, WIDTH - PLATFORM_WIDTH), random.randint(100, 400)) for _ in range(4)])
         self.background = Background()
+        self.score = Score()
+        self.game_running = True
