@@ -38,3 +38,9 @@ class MainLoop:
                 if event.key == pygame.K_r and not self.game_running:
                     self.restart_game()
 
+    def update(self):
+        if self.game_running:
+            self.player.update(self.platforms)
+            self.background.update()
+
+ 
