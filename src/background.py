@@ -1,5 +1,5 @@
 import pygame
-import settings
+from configs import settings
 
 class Background:
     def __init__(self):

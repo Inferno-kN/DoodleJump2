@@ -3,7 +3,7 @@ import pygame
 from game_over import GameOver
 from platform import Platform
 from player import Player
-from settings import WIDTH, HEIGHT, FPS, PLATFORM_WIDTH, clock, PLATFORM_HEIGHT, screen
+from configs.settings import WIDTH, HEIGHT, FPS, PLATFORM_WIDTH, clock, PLATFORM_HEIGHT, screen
 from background import Background
 from score import Score
 
