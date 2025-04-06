@@ -10,4 +10,6 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (30, 40))
         self.rectangle = self.image.get_rect()
         self.rectangle.center = (settings.WIDTH / 2, settings.HEIGHT / 2)
+        self.position = pygame.math.Vector2(self.rectangle.center)
+        self.velocity = pygame.math.Vector2(0, 0)
         
