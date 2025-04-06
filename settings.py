@@ -11,3 +11,5 @@ PLATFORM_HEIGHT = 15
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
+pygame.init()
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
