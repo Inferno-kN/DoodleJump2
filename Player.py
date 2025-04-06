@@ -20,3 +20,6 @@ class Player(pygame.sprite.Sprite):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             self.acceleration.x = -0.8
+        if keys[pygame.K_RIGHT]:
+            self.acceleration.x = 0.8
+        
