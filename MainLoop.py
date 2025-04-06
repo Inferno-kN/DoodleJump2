@@ -49,4 +49,6 @@ class MainLoop:
             self.player.position.y += scroll_amount
             self.player.rectangle.y = self.player.position.y
 
-            
+            for platform in self.platforms:  # проверка на приземление на платформу
+                platform.rectangle.y += scroll_amount
+                
