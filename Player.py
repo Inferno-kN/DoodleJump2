@@ -52,3 +52,6 @@ class Player(pygame.sprite.Sprite):
             for platform in platforms:
                 if self.rectangle.colliderect(platform.rectangle):
                     self.velocity.y = settings.JUMP_HEIGHT
+                    self.update_score()
+                    break
+
