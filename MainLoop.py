@@ -61,4 +61,15 @@ class MainLoop:
             self.game_running = False
 
 
-    
+    def draw(self):
+        self.background.draw(self.screen)
+
+        if self.game_running:
+            self.player.draw(self.screen)
+            for platform in self.platforms:
+                platform.draw(self.screen)
+            self.score.draw(self.screen, self.player.rectangle.bottom)
+        else:
+            self.game_over.draw(self.screen, self.score.score)
+
+        
