@@ -72,4 +72,7 @@ class MainLoop:
         else:
             self.game_over.draw(self.screen, self.score.score)
 
-        
+        pygame.display.flip()
+
+
+    
