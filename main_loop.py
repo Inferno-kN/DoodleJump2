@@ -6,7 +6,7 @@ from GameOver import GameOver
 from Platform import Platform
 from Player import Player
 from settings import WIDTH, HEIGHT, FPS, PLATFORM_WIDTH, clock, PLATFORM_HEIGHT, screen
-from Background import Background
+from background import Background
 from Score import Score
 
 class MainLoop:
