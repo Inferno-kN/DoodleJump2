@@ -9,3 +9,6 @@ class Score:
     def update(self):
         self.score += 50
 
+    def draw(self, surface, player_bottom):
+        text = self.font.render(f"Текущий счёт: {self.score}", True, BLACK)
+        surface.blit(text, (10, 10))
