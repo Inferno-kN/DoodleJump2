@@ -42,7 +42,7 @@ class Player(pygame.sprite.Sprite):
         if self.position.x < 0:
             self.position.x = settings.WIDTH
         if self.position.x > settings.WIDTH:
-            self.position.x = settings.WIDTH
+            self.position.x = 0
 
         self.rectangle.center = round(self.position.x), round(self.position.y)
 
