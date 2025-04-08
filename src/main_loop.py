@@ -13,7 +13,7 @@ class MainLoop:
         self.screen = screen # Экран инициализируется здесь
         self.clock = clock # Clock инициализируется здесь
         self.player = Player()
-        
+        self.platforms = generate_simple_platform(20)
         self.game_over = GameOver()
         self.background = Background()
         self.score = Score()
