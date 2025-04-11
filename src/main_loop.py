@@ -51,8 +51,7 @@ class MainLoop:
                 platform.rectangle.y += scroll_amount
                 if platform.rectangle.top > HEIGHT:
                     self.platforms.remove(platform)
-                    self.platforms.append(
-                        Platform(random.randint(0, WIDTH - PLATFORM_WIDTH), random.randint(-100, -20)))
+                    self.platforms.append(Platform(random.randint(0, WIDTH - PLATFORM_WIDTH), random.randint(-100, -20)))
                     self.score.update()  # идёт увеличение счёта
 
         if self.player.rectangle.top > HEIGHT:
