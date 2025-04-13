@@ -1,4 +1,5 @@
 import random
+import json
 import pygame
 from src.game_over import GameOver
 from src.platform import Platform
@@ -19,6 +20,9 @@ class MainLoop:
         self.score = Score()
         self.is_game_starting = True
         self.game_running = True
+
+        with open("records.json") as file:
+            self.records = json.load(file)
 
 
     def run(self):
@@ -47,6 +51,10 @@ class MainLoop:
             self.player.position.y += scroll_amount
             self.player.rectangle.y = self.player.position.y
 
+            #for platform in self.platforms:
+            #    if player.is_on_platform(platform):
+            #        ...
+
             for platform in self.platforms:  # проверка на приземление на платформу
                 platform.rectangle.y += scroll_amount
                 if platform.rectangle.top > HEIGHT:
@@ -54,7 +62,7 @@ class MainLoop:
                     self.platforms.append(Platform(random.randint(0, WIDTH - PLATFORM_WIDTH), random.randint(-100, -20)))
                     self.score.update()  # идёт увеличение счёта
 
-        if self.player.rectangle.top > HEIGHT:
+        if self.game_running and self.player.rectangle.top > HEIGHT:
             self.game_running = False
 
 
