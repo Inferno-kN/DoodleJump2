@@ -64,6 +64,10 @@ class MainLoop:
 
         if self.game_running and self.player.rectangle.top > HEIGHT:
             self.game_running = False
+            self.records["records"].append(self.score.score)
+
+            with open("records.json", "w") as file:
+                json.dump(self.records, file)
 
 
     def draw(self):
