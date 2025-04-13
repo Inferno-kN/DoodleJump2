@@ -51,8 +51,11 @@ class Player(pygame.sprite.Sprite):
         if self.velocity.y > 0:
             for platform in platforms:
                 if self.rectangle.colliderect(platform.rectangle):
+                    # if platform это CollapsePlatform:
+                    #     нужно сломать platform
+                    #     platform.collapse()
+
                     self.velocity.y = settings.JUMP_HEIGHT
-                    self.update_score()
                     break
 
     def update_score(self):
