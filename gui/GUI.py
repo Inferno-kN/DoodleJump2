@@ -25,6 +25,10 @@ class GUI:
         self.button_score = Button(self.button_frame, text="Смотреть рекорды", width=20, height=2, bg="#F0E68C")
         self.button_score.pack(pady=10)
 
+        self.button_exit = Button(self.button_frame, text="Выйти из игры", width=20, height=2, bg="#FA8072")
+        self.button_exit.pack(pady=10)
+
+
 
 
 
