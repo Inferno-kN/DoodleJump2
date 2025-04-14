@@ -11,6 +11,10 @@ lbl.place(x=270, y=30)
 btn = tkinter.Button(text='Начать игру')
 btn.place(x=340, y=200)
 
+btn1 = tkinter.Button(text='Посмотреть статистику рекордов')
+btn1.place(x=285, y=260)
+
+
 
 window.mainloop()
 
