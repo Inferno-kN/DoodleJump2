@@ -17,5 +17,5 @@ btn1.place(x=285, y=260)
 btn2 = tkinter.Button(text='Выйти из игры')
 btn2.place(x=335, y=320)
 
-
+window.mainloop()
 
