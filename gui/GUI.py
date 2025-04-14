@@ -32,8 +32,10 @@ class GUI:
         self.label_author.grid(row=2, column=0, columnspan=3, sticky=tkinter.S, pady=10)
 
         # а тут изображение (+ метод на выброс ошибки)
-        self.photo = PhotoImage(file=".gif")
-        
+            self.photo = PhotoImage(file=".gif")
+            self.image_label = Label(self.title_frame, image=self.photo, bg="#87CEEB")
+            self.image_label.pack()
+
 
 
     def start_game(self): pass
