@@ -37,4 +37,4 @@ class GUI:
 
     def show_score(self): pass
 
-    
+    def exit_game(self): pass
