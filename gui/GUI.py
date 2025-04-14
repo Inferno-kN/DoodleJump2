@@ -14,7 +14,8 @@ btn.place(x=340, y=200)
 btn1 = tkinter.Button(text='Посмотреть статистику рекордов')
 btn1.place(x=285, y=260)
 
+btn2 = tkinter.Button(text='Выйти из игры')
+btn2.place(x=335, y=320)
 
 
-window.mainloop()
 
