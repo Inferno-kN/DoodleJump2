@@ -28,7 +28,8 @@ class GUI:
         self.button_exit = Button(self.button_frame, text="Выйти из игры", width=20, height=2, bg="#FA8072")
         self.button_exit.pack(pady=10)
 
-
+        self.label_author = Label(window, text="Made by Inferno", font=("Arial", 12), bg="#87CEEB")
+        self.label_author.grid(row=2, column=0, columnspan=3, sticky=tkinter.S, pady=10)
 
 
 
