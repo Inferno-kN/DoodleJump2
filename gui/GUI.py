@@ -32,4 +32,4 @@ class GUI:
         self.label_author.grid(row=2, column=0, columnspan=3, sticky=tkinter.S, pady=10)
 
 
-
+    def start_game(self): pass
