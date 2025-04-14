@@ -8,4 +8,9 @@ lbl = Label(window, text="Добро пожаловать!", font=("Arial Bold",
 lbl.grid(column=10, row=10)
 lbl.place(x=270, y=30)
 
+btn = tkinter.Button(text='Начать игру')
+btn.place(x=340, y=200)
+
+
+window.mainloop()
 
