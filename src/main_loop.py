@@ -7,7 +7,7 @@ from src.player import Player
 from configs.settings import WIDTH, HEIGHT, FPS, PLATFORM_WIDTH, clock, PLATFORM_HEIGHT, screen
 from src.background import Background
 from src.score import Score
-from src.platforms import generate_simple_platform
+from configs.platforms import generate_simple_platform
 
 class MainLoop:
     def __init__(self):
