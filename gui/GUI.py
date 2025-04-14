@@ -33,3 +33,8 @@ class GUI:
 
 
     def start_game(self): pass
+
+
+    def show_score(self): pass
+
+    
