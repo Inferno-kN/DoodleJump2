@@ -22,9 +22,9 @@ def generate_simple_platform(platform_count: int) -> list[Platform]:
             new_x = WIDTH - PLATFORM_WIDTH  # если платформа меньше чем х=0, то игрок не взаимодействует с ней (правая сторона)
 
         current_y -= 40
-
+        # проверка на выход за границы экрана по оси Y
         if current_y < 0:
-            break
+            break # если значение y < 0, то платформа, созданная за пределами экрана не будет добавляться в список, где генерируются платформы.
 
         platforms.append(Platform(new_x, current_y))
         current_x = new_x
