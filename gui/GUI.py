@@ -47,7 +47,9 @@ class GUI:
             data = json.load(file)
             self.highscores = data['records']
 
-    
+    def save_highscores(self, filename='records.json'): #сохранение рекордов в records.json
+        data = {"records": self.highscores}
+        
 
 root = Tk()
 gui = GUI(root)
