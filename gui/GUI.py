@@ -40,11 +40,12 @@ class GUI:
         self.game_window.geometry('800x600')
         self.game_window.configure(bg="#87CEEB")
 
-        label = Label(self.game_window, text="Игра началась!", font=("Arial", 24), bg="#87CEEB", fg="white")
+        label = Label(self.game_window, font=("Arial", 24), bg="#87CEEB", fg="white")
         label.pack(pady=20)
 
         button_end_game = Button(self.game_window, text="Завершить игру", command=self.end_game)
         button_end_game.pack(pady=10)
+        button_end_game.place(relx=1.0, rely=0.0, anchor=NE) #NE означает "North East" (северо-восток), что соответствует верхнему правому углу кнопки.
 
     def end_game(self):
         self.game_window.destroy()  # закрываем окно игры
