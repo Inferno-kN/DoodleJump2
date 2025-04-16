@@ -31,16 +31,14 @@ class GUI:
         self.label_author = Label(window, text="Made by Inferno", font=("Arial", 12), bg="#87CEEB")
         self.label_author.grid(row=2, column=0, columnspan=3, sticky=tkinter.S, pady=10)
 
-        # а тут изображение (+ метод на выброс ошибки)
 
-
-
-    def start_game(self): pass
-
+    def start_game(self):
+        pass
 
     def show_score(self): pass
 
-    def exit_game(self): pass
+    def exit_game(self):
+        self.window.destroy()
 
     def load_highscores(self, filename='records.json'): #загрузка рекордов
         with open(filename, 'r') as file:
