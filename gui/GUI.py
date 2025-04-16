@@ -33,7 +33,10 @@ class GUI:
 
 
     def start_game(self):
-        pass
+        # Закрываем главное окно
+        self.window.destroy()
+
+        
 
     def show_score(self): pass
 
