@@ -10,13 +10,16 @@ def generate_simple_platform(platform_count: int) -> list[Platform]:
     for i in range(platform_count - 1):
         salt = random.randint(-200, 200)
 
-        # Чередование смещения вправо и влево
         if i % 2 == 0:
             new_x = current_x + 100 + salt  # Смещение вправо
         else:
             new_x = current_x - 100 - salt  # Смещение влево
 
-        
+        # проверка на выход за границы экрана по оси X
+        if new_x < 0:
+            new_x = 0  # если платформа меньше чем х=0, то игрок не взаимодействует с ней (левая сторона)
+        elif new_x + PLATFORM_WIDTH > WIDTH:
+            new_x = WIDTH - PLATFORM_WIDTH  # если платформа меньше чем х=0, то игрок не взаимодействует с ней (правая сторона)
 
         current_y -= 40
 
