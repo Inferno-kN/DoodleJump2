@@ -3,8 +3,8 @@ from configs import settings
 
 class Background:
     def __init__(self):
-        self.image = pygame.Surface((settings.WIDTH, settings.HEIGHT))
-        self.image.fill((100, 149, 237))
+        self.image = pygame.image.load('resources/fonts/background.png')
+        self.image = pygame.transform.scale(self.image, (settings.WIDTH, settings.HEIGHT))
         self.rectangle = self.image.get_rect()
         self.rectangle.topleft = (0, 0)
         self.speed = 1
