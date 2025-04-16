@@ -24,7 +24,7 @@ def generate_simple_platform(platform_count: int) -> list[Platform]:
         current_y -= 40
         # проверка на выход за границы экрана по оси Y
         if current_y < 0:
-            break # если значение y < 0, то платформа, созданная за пределами экрана не будет добавляться в список, где генерируются платформы.
+            break # если значение y < 0, то платформа, созданная за пределами экрана не будет добавляться в список, где генерируются платформы
 
         platforms.append(Platform(new_x, current_y))
         current_x = new_x
