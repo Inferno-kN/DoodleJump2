@@ -62,7 +62,7 @@ class GUI:
 
         self.highscores() #передаём рекорды перед тем как окно отобразится
 
-        
+        self.highscores.sort(reverse=True) # сортировка по убыванию
 
 root = Tk()
 gui = GUI(root)
