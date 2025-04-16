@@ -60,6 +60,8 @@ class GUI:
         highscore_window = Toplevel(self.window)
         highscore_window.title("Рекорды")
 
+        self.highscores() #передаём рекорды перед тем как окно отобразится
+
         
 
 root = Tk()
