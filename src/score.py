@@ -10,5 +10,5 @@ class Score:
         self.score += 1
 
     def draw(self, surface, player_bottom):
-        text = self.font.render(f"Текущий счёт: {self.score}", True, BLACK)
+        text = self.font.render(f"Счёт: {self.score}", True, BLACK)
         surface.blit(text, (10, 10))
