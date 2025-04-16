@@ -33,8 +33,12 @@ class GUI:
 
 
     def start_game(self):
-        # Закрываем главное окно
-        self.window.destroy()
+        self.window.destroy() # Закрываем главное окно
+
+        game_window = Tk()  # создаем новое главное окно для игры
+        game_window.title("Игра началась!")
+        game_window.geometry('800x600')
+        game_window.configure(bg="#87CEEB")
 
         
 
