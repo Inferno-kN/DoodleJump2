@@ -44,7 +44,7 @@ class Player(pygame.sprite.Sprite):
         if self.position.x > settings.WIDTH:
             self.position.x = 0
 
-        self.rectangle.center = round(self.position.x), round(self.position.y)
+        self.rectangle.center = (self.position.x, self.position.y)  # тут раньше стоял round
 
     def check_user(self, platforms):
         # проверка на столкновение игрока
