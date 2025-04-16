@@ -33,20 +33,20 @@ class GUI:
 
 
     def start_game(self):
-        self.window.destroy() # Закрываем главное окно
+        self.window.withdraw()  # Скрываем главное окно
 
-        game_window = Tk()  # создаем новое главное окно для игры
-        game_window.title("Игра началась!")
-        game_window.geometry('800x600')
-        game_window.configure(bg="#87CEEB")
+        self.game_window = Toplevel(self.window)  # создаем новое окно для игры
+        self.game_window.title("Игра началась!")
+        self.game_window.geometry('800x600')
+        self.game_window.configure(bg="#87CEEB")
 
-        label = Label(game_window, text="Игра началась!", font=("Arial", 24), bg="#87CEEB", fg="white")
+        label = Label(self.game_window, text="Игра началась!", font=("Arial", 24), bg="#87CEEB", fg="white")
         label.pack(pady=20)
 
-        button_end_game = Button(game_window, text="Завершить игру", command=game_window.destroy)
+        button_end_game = Button(self.game_window, text="Завершить игру", command=self.end_game)
         button_end_game.pack(pady=10)
 
-        game_window.mainloop() # запуск главного цикла нового окна
+    
 
     def show_score(self): pass
 
