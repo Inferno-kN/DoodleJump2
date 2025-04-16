@@ -1,12 +1,12 @@
-import tkinter
-from tkinter import * #коммит
+import tkinter, json
+from tkinter import *
 
 class GUI:
     def __init__(self, window):
         self.window = window
         window.title("The Little Alien")
         window.geometry('800x600')
-        window.configure(bg="#87CEEB") # голбуой цвет
+        window.configure(bg="#87CEEB") # голубой цвет
 
 
         self.title_frame = Frame(window, bg="#87CEEB") # это типа заголовок главная штукенция
@@ -32,11 +32,7 @@ class GUI:
         self.label_author.grid(row=2, column=0, columnspan=3, sticky=tkinter.S, pady=10)
 
         # а тут изображение (+ метод на выброс ошибки)
-        try:
-            self.photo = PhotoImage(file=".gif")
-            self.image_label = Label(self.title_frame, image=self.photo, bg="#87CEEB")
-            self.image_label.pack()
-        except FileNotFoundError: print("Логотип не найден, будет запущен без него.")
+
 
 
     def start_game(self): pass
@@ -45,6 +41,13 @@ class GUI:
     def show_score(self): pass
 
     def exit_game(self): pass
+
+    def load_highscores(self, filename='records.json'): #загрузка рекордов
+        with open(filename, 'r') as file:
+            data = json.load(file)
+            self.highscores = data['records']
+
+    
 
 root = Tk()
 gui = GUI(root)
