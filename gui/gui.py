@@ -43,7 +43,7 @@ class GUI:
         label = Label(self.game_window, font=("Arial", 24), bg="#87CEEB", fg="white")
         label.pack(pady=20)
 
-        button_end_game = Button(self.game_window, text="Завершить игру", command=self.end_game)
+        button_end_game = Button(self.game_window, text="Выйти в главное меню", command=self.end_game)
         button_end_game.pack(pady=10)
         button_end_game.place(relx=1.0, rely=0.0, anchor=NE) #NE означает "North East" (северо-восток), что соответствует верхнему правому углу кнопки.
 
@@ -63,11 +63,8 @@ class GUI:
 
     def save_highscores(self, filename='records.json'): #сохранение рекордов в records.json
         data = {"records": self.highscores}
-        try:
-            with open(filename, 'w') as file:
-                json.dump(data, file)
-        except Exception:
-            print("Ошибка при сохранении рекордов")
+        with open(filename, 'w') as file:
+            json.dump(data, file)
 
 
     def create_window_highscores(self):
