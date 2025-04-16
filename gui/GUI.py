@@ -46,7 +46,7 @@ class GUI:
         button_end_game = Button(game_window, text="Завершить игру", command=game_window.destroy)
         button_end_game.pack(pady=10)
 
-        
+        game_window.mainloop() # запуск главного цикла нового окна
 
     def show_score(self): pass
 
