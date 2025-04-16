@@ -49,7 +49,14 @@ class GUI:
 
     def save_highscores(self, filename='records.json'): #сохранение рекордов в records.json
         data = {"records": self.highscores}
-        
+        try:
+            with open(filename, 'w') as file:
+                json.dump(data, file)
+        except Exception:
+            print("Ошибка при сохранении рекордов")
+
+
+    
 
 root = Tk()
 gui = GUI(root)
