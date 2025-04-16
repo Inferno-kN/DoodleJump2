@@ -40,6 +40,9 @@ class GUI:
         game_window.geometry('800x600')
         game_window.configure(bg="#87CEEB")
 
+        label = Label(game_window, text="Игра началась!", font=("Arial", 24), bg="#87CEEB", fg="white")
+        label.pack(pady=20)
+
         
 
     def show_score(self): pass
