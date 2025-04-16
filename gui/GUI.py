@@ -47,8 +47,8 @@ class GUI:
         button_end_game.pack(pady=10)
 
     def end_game(self):
-        self.game_window.destroy()  # Закрываем окно игры
-        
+        self.game_window.destroy()  # закрываем окно игры
+        self.window.deiconify()  # показываем главное окно снова
 
     def show_score(self): pass
 
