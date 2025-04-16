@@ -56,7 +56,11 @@ class GUI:
             print("Ошибка при сохранении рекордов")
 
 
-    
+    def create_window_highscores(self):
+        highscore_window = Toplevel(self.window)
+        highscore_window.title("Рекорды")
+
+        
 
 root = Tk()
 gui = GUI(root)
