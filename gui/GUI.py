@@ -43,6 +43,9 @@ class GUI:
         label = Label(game_window, text="Игра началась!", font=("Arial", 24), bg="#87CEEB", fg="white")
         label.pack(pady=20)
 
+        button_end_game = Button(game_window, text="Завершить игру", command=game_window.destroy)
+        button_end_game.pack(pady=10)
+
         
 
     def show_score(self): pass
