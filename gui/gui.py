@@ -1,9 +1,13 @@
 import tkinter, json
 from tkinter import *
+from refactoring.source.MainLoop import MainLoop
+from refactoring.source.StorageManager import StorageManager
 
 class GUI:
     def __init__(self, window):
         self.window = window
+        self.__directory = StorageManager()
+        #self.__background = Background()
         window.title("The Little Alien")
         window.geometry('800x600')
         window.configure(bg="#87CEEB") # голубой цвет
@@ -34,24 +38,31 @@ class GUI:
 
     def start_game(self):
         self.window.withdraw()  # Скрываем главное окно
-
+        mainloop = MainLoop()
         self.game_window = Toplevel(self.window)  # создаем новое окно для игры
         self.game_window.title("Игра началась!")
         self.game_window.geometry('800x600')
         self.game_window.configure(bg="#87CEEB")
+        mainloop.run()
+
+
 
         label = Label(self.game_window, font=("Arial", 24), bg="#87CEEB", fg="white")
         label.pack(pady=20)
 
         button_end_game = Button(self.game_window, text="Выйти в главное меню", command=self.end_game)
         button_end_game.pack(pady=10)
-        button_end_game.place(relx=1.0, rely=0.0, anchor=NE) #NE означает "North East" (северо-восток), что соответствует верхнему правому углу кнопки.
+        button_end_game.place(relx=1.0, rely=0.0, anchor=NE)
 
     def end_game(self):
         self.game_window.destroy()  # закрываем окно игры
         self.window.deiconify()  # показываем главное окно снова
 
-    def show_score(self): pass
+    def show_score(self):
+
+        scores = self.__directory.read()
+        self.label_author = Label(self.window, text=', '.join(str(scores)), font=("Arial", 12), bg="#87CEEB")
+
 
     def exit_game(self):
         self.window.destroy()
@@ -78,3 +89,12 @@ class GUI:
 root = Tk()
 gui = GUI(root)
 root.mainloop()
+
+
+
+#проблемы: 1) нужно оформить логику в gui кнопка "Просмотр рекордов";
+#2) картинка дергается, нужно пофиксить
+#3) доработать кнопку логику Старта игры, чтобы выкидывало в игровой процесс в след окне
+#4) добавить разрушенные платформы
+#5) добавить логику кнопка "Выйти в главное меню" в игровом процессе
+#6) нужно из app вызывать гуи или наоборот? и main_loop в гуи передавать? Ответ: через app запускать

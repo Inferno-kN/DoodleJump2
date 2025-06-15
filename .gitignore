@@ -1,0 +1,11 @@
+# ignore all .txt
+*.txt
+
+# ignore all venv
+.venv/
+
+# ignore all Pycharm
+.idea/
+
+# ignore all __pycache__
+__pycache__/

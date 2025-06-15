@@ -7,11 +7,9 @@ class GameOver:
         self.score = 0
 
     def draw(self, surface, score):
-        # Цвета
         lose_text_color = (255, 0, 0)  # красный
         score_text_color = (0, 255, 0)  # зеленый
         restart_text_color = (0, 0, 255)  # синий
-
 
         text1 = self.font.render("Вы проиграли!", True, lose_text_color)
         text_rectangle1 = text1.get_rect(center=(settings.WIDTH / 2, settings.HEIGHT / 2 - 20))
