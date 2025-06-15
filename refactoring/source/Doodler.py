@@ -14,8 +14,6 @@ class Doodler:
         self.__height = DOODLER_HEIGHT
         self.__gravity = DOODLER_GRAVITY
         self.__jump_power = DOODLER_JUMP_POWER
-        self.__is_jumping = False
-
         self.__image = pygame.image.load(doodler).convert_alpha()
         self.__image = pygame.transform.scale(self.__image, (self.__width, self.__height))
         self.__doodler_rect = pygame.Rect(self.__x, self.__y, self.__width, self.__height)

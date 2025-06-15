@@ -1,6 +1,7 @@
 import pygame
 from refactoring.cfg.config import *
 
+
 class Background:
     def __init__(self):
         self.__image = pygame.image.load(background).convert_alpha()

@@ -87,7 +87,10 @@ class Field:
 
             self.__doodler.get_doodle_rect().y += scroll_amount
 
+
             self.__doodler.set_y(self.__doodler.get_doodle_rect().y)
+
+
 
         #y = self.__doodler.get_position()[1]
         #if y >= HEIGHT / 3:

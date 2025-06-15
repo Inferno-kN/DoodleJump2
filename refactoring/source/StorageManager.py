@@ -1,7 +1,7 @@
 from refactoring.cfg.config import records
 import json, os
 
-class Directory:
+class StorageManager:
     def __init__(self):
         self.__records = records
 
@@ -18,4 +18,3 @@ class Directory:
             with open(self.__records, "w") as file:
                 record.append(value)
                 json.dump(record, file)
-
