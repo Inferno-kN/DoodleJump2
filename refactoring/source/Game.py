@@ -1,10 +1,9 @@
-# Game.py
 import pygame
 from refactoring.source.Doodler import Doodler
 from refactoring.source.Score import Score
 from refactoring.cfg import config
 from refactoring.source.Background import Background
-from refactoring.source.StorageManager import StorageManager  # Импортируем StorageManager
+from refactoring.source.StorageManager import StorageManager
 
 
 class Game:
@@ -36,9 +35,9 @@ class Game:
     def get_is_running(self):
         return self.__running
 
-    def game_over(self):
+    def game_over(self, score):
         self.__running = False
-        score = self.__score.get_score()  # получаем счёт
+        #score = self.__score.get_score()  # получаем счёт
         self.__storage_manager.write(score)  # сохраняем счёт
 
     def restart_game(self):
