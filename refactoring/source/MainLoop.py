@@ -15,28 +15,38 @@ class MainLoop:
         self.__score = Score()
         self.__background = Background()
         self.__game = Game()
+        self.__is_game_over_show = False
         self.__field = Field(self.__score)
         self.__doodler = self.__field.get_doodler()
         self.__platforms = self.__field.get_platforms()
         self.__game_score = 0
 
     def run(self):
-        while self.__game.get_is_running():
-            self.__clock.tick(FPS)
+        while True:
             self.handle_events()
-            self.update()
-            self.draw()
+            if self.__game.get_is_running():
+                if self.__is_game_over_show:
+                    self.__is_game_over_show = False
+                self.__clock.tick(FPS)
+                self.update()
+                self.draw()
             #self.check_is_running()
+            if self.__game.get_is_running() is False and self.__is_game_over_show is False:
+                self.__is_game_over_show = True
+                self.handle_events()
+                self.__game.draw(self.__screen, self.__score)
+                pygame.display.flip()
+
 
 
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                self.__game.game_over()
+                self.__game.game_over(self.__score.get_score())
                 pygame.quit()
                 exit()
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_r:
+                if event.key == pygame.K_r and self.__game.get_is_running() is False:
                     self.restart()
             elif event.type == pygame.KEYUP:
                 keys = pygame.key.get_pressed()
@@ -62,8 +72,8 @@ class MainLoop:
 
     def check_is_running(self):
         if self.__doodler.get_position()[1] > HEIGHT:
-            #self.__game.game_over()
-            self.__game.draw(self.__screen, self.__score)
+            self.__game.game_over(self.__score.get_score())
+
 
     def restart(self):
         self.__game.restart_game()
