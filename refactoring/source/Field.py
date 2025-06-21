@@ -1,6 +1,7 @@
 import random
 from refactoring.cfg.config import *
 from refactoring.source.AbstractPlatform import AbstractPlatform
+from refactoring.source.BrokenPlatform import BrokenPlatform
 from refactoring.source.SimplePlatform import SimplePlatform
 from refactoring.source.Background import Background
 from refactoring.source.Doodler import Doodler
@@ -29,6 +30,25 @@ class Field:
 
         platforms = [SimplePlatform(current_x, current_y)]
 
+        #1 генерация
+        for i in range(platform_count - 1):
+            salt = random.randint(-200, 200)
+            new_x = current_x + salt
+
+            if new_x < 0:
+                new_x = 0
+            elif new_x + PLATFORM_WIDTH > WIDTH:
+                new_x = WIDTH - PLATFORM_WIDTH
+
+            current_y -= 40
+            if current_y < 0:
+                break
+
+            new_platform = BrokenPlatform(new_x, current_y)
+            platforms.append(new_platform)
+            current_x = new_x
+
+        #2 генерация
         for i in range(platform_count - 1):
             salt = random.randint(-200, 200)
             new_x = current_x + salt
@@ -47,6 +67,12 @@ class Field:
             current_x = new_x
 
         return platforms
+
+
+
+
+
+
 
     def draw(self, screen):
         self.__background.draw(screen)
@@ -89,6 +115,14 @@ class Field:
 
 
             self.__doodler.set_y(self.__doodler.get_doodle_rect().y)
+
+
+    def regenerate_broken_platforms(self, platform):
+        self.__platforms.remove(platform)
+        new_x = random.randint(0, WIDTH - PLATFORM_WIDTH)
+        new_y = random.randint(-100, -20)
+        self.__platforms.append(BrokenPlatform(new_x, new_y))
+
 
 
 

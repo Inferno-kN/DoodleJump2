@@ -9,9 +9,10 @@ class BrokenPlatform(AbstractPlatform):
         self.__type = 'broken'
 
 
-    def update(self):
-        if self.__is_broken: pass
-
 
     def break_platform(self) -> bool:
         self.__is_broken = True
+
+
+    def get_broken_platform(self):
+        return self.__is_broken

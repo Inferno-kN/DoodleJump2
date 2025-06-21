@@ -1,7 +1,10 @@
 import pygame
 from refactoring.cfg.config import *
+from refactoring.source.AbstractPlatform import AbstractPlatform
 from refactoring.source.Score import Score
 from refactoring.source.BrokenPlatform import BrokenPlatform
+from refactoring.source.SimplePlatform import SimplePlatform
+
 
 class Doodler:
     def __init__(self, score: Score, x, y):
@@ -96,6 +99,15 @@ class Doodler:
                     self.set_y_speed(self.__jump_power)
                     self.__doodler_rect.y = self.__y
                     self.__score_update.update()
+
+                if type(platform) is BrokenPlatform:
+                    platforms.remove(platform)
+
+
+
+
+
+
 
 
 
