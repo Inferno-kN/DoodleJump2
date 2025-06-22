@@ -3,6 +3,8 @@ from refactoring.cfg.config import *
 from refactoring.source.Score import Score
 from refactoring.source.BrokenPlatform import BrokenPlatform
 
+
+
 class Doodler:
     def __init__(self, score: Score, x, y):
         self.__score_update = score
@@ -85,10 +87,11 @@ class Doodler:
         self.__y_speed = value
 
     def check_collision(self, platforms):
+        broken_platforms = []
         self.__doodler_rect.x = self.__x
         self.__doodler_rect.y = self.__y
 
-        for platform in platforms:
+        for platform in platforms[:]:
             platform_rect = pygame.Rect(platform.get_position()[0], platform.get_position()[1], platform.get_size()[0], platform.get_size()[1])
             if self.__doodler_rect.colliderect(platform_rect) and self.__y_speed > 0:
                 if self.__y + self.__height - self.__y_speed <= platform_rect.y:
@@ -96,6 +99,19 @@ class Doodler:
                     self.set_y_speed(self.__jump_power)
                     self.__doodler_rect.y = self.__y
                     self.__score_update.update()
+
+                if isinstance(platform, BrokenPlatform):
+                    platforms.remove(platform)
+                    broken_platforms.append(platform)
+
+        return broken_platforms
+
+
+
+
+
+
+
 
 
 
