@@ -18,3 +18,7 @@ class StorageManager:
             with open(self.__records, "w") as file:
                 record.append(value)
                 json.dump(record, file)
+
+
+    def get_records(self):
+        return self.__records

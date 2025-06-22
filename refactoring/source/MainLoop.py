@@ -4,7 +4,6 @@ from refactoring.source.Score import Score
 from refactoring.source.Game import Game
 from refactoring.source.Field import Field
 from refactoring.source.Background import Background
-from refactoring.source.StorageManager import StorageManager
 
 class MainLoop:
     def __init__(self):
@@ -56,6 +55,9 @@ class MainLoop:
     def update(self):
         keys = pygame.key.get_pressed()
         self.__doodler.update_motion(keys, self.__platforms)
+        broken_platforms = self.__doodler.check_collision(self.__platforms)
+        for broken in broken_platforms:
+            self.__field.regenerate_broken_platforms(broken)
         self.__field.update()
         self.__field.scroll_screen()
 

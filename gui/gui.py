@@ -59,32 +59,29 @@ class GUI:
         self.window.deiconify()  # показываем главное окно снова
 
     def show_score(self):
+        score_window = Toplevel(self.window)
+        score_window.title("Records")
+        score_window.geometry("300x200")
 
-        scores = self.__directory.read()
-        self.label_author = Label(self.window, text=', '.join(str(scores)), font=("Arial", 12), bg="#87CEEB")
+        path_records = self.__directory.get_records()
 
+        try:
+            with open(path_records, "r") as file:
+                scores = json.load(file)
+            display_text = ', '.join(str(elem) for elem in scores)
+        except (FileNotFoundError, json.JSONDecodeError):
+            display_text = "Нет данных или ошибка файла"
+
+        label_author = Label(score_window, text=display_text, font=("Arial", 12))
+        label_author.pack(pady=10)
+
+        close_button = Button(score_window, text="Закрыть", command=score_window.destroy)
+        close_button.pack(pady=10)
 
     def exit_game(self):
         self.window.destroy()
 
-    def load_highscores(self, filename='records.json'): #загрузка рекордов
-        with open(filename, 'r') as file:
-            data = json.load(file)
-            self.highscores = data['records']
 
-    def save_highscores(self, filename='records.json'): #сохранение рекордов в records.json
-        data = {"records": self.highscores}
-        with open(filename, 'w') as file:
-            json.dump(data, file)
-
-
-    def create_window_highscores(self):
-        highscore_window = Toplevel(self.window)
-        highscore_window.title("Рекорды")
-
-        self.highscores() #передаём рекорды перед тем как окно отобразится
-
-        self.highscores.sort(reverse=True) # сортировка по убыванию
 
 root = Tk()
 gui = GUI(root)
@@ -92,9 +89,3 @@ root.mainloop()
 
 
 
-#проблемы: 1) нужно оформить логику в gui кнопка "Просмотр рекордов";
-#2) картинка дергается, нужно пофиксить
-#3) доработать кнопку логику Старта игры, чтобы выкидывало в игровой процесс в след окне
-#4) добавить разрушенные платформы
-#5) добавить логику кнопка "Выйти в главное меню" в игровом процессе
-#6) нужно из app вызывать гуи или наоборот? и main_loop в гуи передавать? Ответ: через app запускать
