@@ -12,6 +12,7 @@ class Doodler:
         self.__y = y
         self.__x_speed = 0
         self.__y_speed = 0
+        self.__visited_platform = []
         self.__width = DOODLER_WIDTH
         self.__height = DOODLER_HEIGHT
         self.__gravity = DOODLER_GRAVITY
@@ -98,7 +99,10 @@ class Doodler:
                     self.__y = platform_rect.y - self.__height
                     self.set_y_speed(self.__jump_power)
                     self.__doodler_rect.y = self.__y
-                    self.__score_update.update()
+
+                    if platform not in self.__visited_platform:
+                        self.__score_update.update()
+                        self.__visited_platform.append(platform)
 
                 if isinstance(platform, BrokenPlatform):
                     platforms.remove(platform)
