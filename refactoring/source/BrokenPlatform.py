@@ -1,10 +1,11 @@
+from refactoring.cfg.config import broken_platform
 from refactoring.source.AbstractPlatform import AbstractPlatform
 
 class BrokenPlatform(AbstractPlatform):
 
 
     def __init__(self, x, y):
-        super().__init__(x, y, "картинка")
+        super().__init__(x, y, broken_platform)
         self.__is_broken = False
         self.__type = 'broken'
 
