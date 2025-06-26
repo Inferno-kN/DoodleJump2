@@ -1,3 +1,4 @@
+import sys
 import tkinter, json
 from tkinter import *
 from refactoring.source.MainLoop import MainLoop
@@ -80,8 +81,7 @@ class GUI:
 
     def exit_game(self):
         self.window.destroy()
-
-
+        sys.exit()
 
 root = Tk()
 gui = GUI(root)

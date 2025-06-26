@@ -15,7 +15,8 @@ DOODLER_GRAVITY = 0.5
 PLATFORM_WIDTH = 70
 PLATFORM_HEIGHT = 15
 
-doodler = r"C:\Users\Herh1\PycharmProjects\Project\School\of\DoodleJump2\refactoring/rsrcs/imgs/doodle.png"
-simple_platform = r"C:\Users\Herh1\PycharmProjects\Project\School\of\DoodleJump2\refactoring/rsrcs/imgs/platform.png"
-background = r"C:\Users\Herh1\PycharmProjects\Project\School\of\DoodleJump2\refactoring/rsrcs/fnts/background.png"
-records = r'C:\Users\Herh1\PycharmProjects\Project\School\of\DoodleJump2\records.json'
+doodler = "refactoring/rsrcs/imgs/doodle.png"
+simple_platform = r"refactoring/rsrcs/imgs/platform.png"
+background = r"refactoring/rsrcs/fnts/background.png"
+records = r'records.json'
+broken_platform = r"refactoring/rsrcs/imgs/broken_platform.png"

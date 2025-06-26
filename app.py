@@ -1,8 +1,8 @@
-import pygame
-from refactoring.source.MainLoop import MainLoop
-#from src.main_loop import MainLoop # это для Разработки приложений в унике
+import tkinter
+from gui.gui import GUI
+
 if __name__ == "__main__":
-    pygame.init()
-    game = MainLoop()
-    game.run()
-    #pygame.quit()
+    root = tkinter.Tk()
+    gui = GUI(root)
+    gui.start_game()
+    root.mainloop()
