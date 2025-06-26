@@ -23,6 +23,7 @@ class Field:
 
 
     def generate_platforms(self, platform_count: int) -> list[AbstractPlatform]:
+        if not isinstance(platform_count, int): raise TypeError
         current_x = WIDTH / 2 - PLATFORM_WIDTH / 2
         current_y = HEIGHT - PLATFORM_HEIGHT
 
@@ -108,6 +109,7 @@ class Field:
                         self.__platforms.append(SimplePlatform(new_x, new_y))
 
             diff = (self.__simple_platform_count + self.__broken_platform_count) - len(self.__platforms)
+            if not isinstance(diff, int): raise TypeError
             for _ in range(diff):
                 new_x = random.randint(0, WIDTH - PLATFORM_WIDTH)
                 new_y = random.randint(-100, -20)

@@ -10,6 +10,7 @@ class Game:
     def __init__(self):
         self.font = pygame.font.Font(None, 48)
         self.__running = True
+        if not isinstance(self.__running, bool): raise TypeError
         self.__score = Score()
         self.__background = Background()
         self.__doodler = Doodler(self.__score, 100, 100)
@@ -33,9 +34,11 @@ class Game:
         surface.blit(restart_text, restart_rect)
 
     def get_is_running(self):
+        if not isinstance(self.__running, bool): raise TypeError
         return self.__running
 
     def game_over(self, score):
+        if not isinstance(score, int): raise TypeError
         self.__running = False
         #score = self.__score.get_score()  # получаем счёт
         self.__storage_manager.write(score)  # сохраняем счёт

@@ -4,7 +4,6 @@ from refactoring.source.Score import Score
 from refactoring.source.BrokenPlatform import BrokenPlatform
 
 
-
 class Doodler:
     def __init__(self, score: Score, x, y):
         self.__score_update = score
@@ -79,15 +78,19 @@ class Doodler:
         self.__y = y
 
     def set_x(self, x):
+        if not isinstance(x, (int, float)): raise TypeError
         self.__x = x
 
     def set_y(self, y):
+        if not isinstance(y, (int, float)): raise TypeError
         self.__y = y
 
     def set_y_speed(self, value):
+        if not isinstance(value, (int, float)): raise TypeError
         self.__y_speed = value
 
     def check_collision(self, platforms):
+        if not isinstance(platforms, list): raise TypeError
         broken_platforms = []
         self.__doodler_rect.x = self.__x
         self.__doodler_rect.y = self.__y
