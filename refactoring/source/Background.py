@@ -9,6 +9,7 @@ class Background:
         self.__rect = self.__image.get_rect()
         self.__rect.topleft = (0, 0)
         self.__speed = 1
+        if not isinstance(self.__speed, int): raise TypeError
 
     def draw(self, screen):
         screen.blit(self.__image, self.__rect)

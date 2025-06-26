@@ -24,4 +24,5 @@ class AbstractPlatform:
         return self.__rectangle.size
 
     def get_type(self):
+        if not isinstance(self.__type, str): raise TypeError
         return self.__type
