@@ -29,7 +29,6 @@ class Field:
 
         platforms = [SimplePlatform(current_x, current_y)]
 
-        #1 генерация
         for i in range(self.__broken_platform_count):
             salt = random.randint(-200, 200)
             new_x = current_x + salt
@@ -47,7 +46,6 @@ class Field:
             platforms.append(new_platform)
             current_x = new_x
 
-        #2 генерация
         for i in range(platform_count - 1):
             salt = random.randint(-200, 200)
             new_x = current_x + salt
@@ -74,10 +72,8 @@ class Field:
             platform.draw(screen)
 
     def restart_game(self, platform_count):
-
         self.__background = Background()
         self.__platforms = self.generate_platforms(platform_count)
-
         self.__doodler = Doodler(self.__score,100, 100)
 
     def get_platforms(self):
@@ -91,33 +87,45 @@ class Field:
 
     def update(self): pass
 
-    def scroll_screen(self):
-        if self.__doodler.get_doodle_rect().top <= HEIGHT / 3:
-            scroll_amount = abs(self.__doodler.get_y_speed())
-
-            for platform in self.__platforms:
-                platform.update(scroll_amount)
-
-            for platform in self.__platforms[:]:
-                if platform.get_top() > HEIGHT:
-                    self.__platforms.remove(platform)
-                    new_x = random.randint(0, WIDTH - PLATFORM_WIDTH)
-                    new_y = random.randint(-100, -20)
-                    if isinstance(platform, BrokenPlatform):
-                        self.__platforms.append(BrokenPlatform(new_x, new_y))
-                    else:
-                        self.__platforms.append(SimplePlatform(new_x, new_y))
-
-            diff = (self.__simple_platform_count + self.__broken_platform_count) - len(self.__platforms)
-            if not isinstance(diff, int): raise TypeError
-            for _ in range(diff):
+    def remove_and_add_platforms(self):
+        for platform in self.__platforms[:]:
+            if platform.get_top() > HEIGHT:
+                self.__platforms.remove(platform)
                 new_x = random.randint(0, WIDTH - PLATFORM_WIDTH)
                 new_y = random.randint(-100, -20)
-                self.__platforms.append(BrokenPlatform(new_x, new_y))
+                if isinstance(platform, BrokenPlatform):
+                    self.__platforms.append(BrokenPlatform(new_x, new_y))
+                else:
+                    self.__platforms.append(SimplePlatform(new_x, new_y))
 
+    def should_scroll(self):
+        return self.__doodler.get_doodle_rect().top <= HEIGHT / 3
 
-            self.__doodler.get_doodle_rect().y += scroll_amount
-            self.__doodler.set_y(self.__doodler.get_doodle_rect().y)
+    def update_platforms_positions(self, scroll_amount):
+        for platform in self.__platforms:
+            platform.update(scroll_amount)
+
+    def balance_platforms(self):
+        diff = (self.__simple_platform_count + self.__broken_platform_count) - len(self.__platforms)
+        if not isinstance(diff, int):
+            raise TypeError
+        for _ in range(diff):
+            new_x = random.randint(0, WIDTH - PLATFORM_WIDTH)
+            new_y = random.randint(-100, -20)
+            self.__platforms.append(BrokenPlatform(new_x, new_y))
+
+    def update_doodler_position(self, scroll_amount):
+        self.__doodler.get_doodle_rect().y += scroll_amount
+        self.__doodler.set_y(self.__doodler.get_doodle_rect().y)
+
+    def scroll_screen(self):
+        if self.should_scroll():
+            scroll_amount = abs(self.__doodler.get_y_speed())
+
+            self.update_platforms_positions(scroll_amount)
+            self.remove_and_add_platforms()
+            self.balance_platforms()
+            self.update_doodler_position(scroll_amount)
 
 
     def regenerate_broken_platforms(self, platform):
