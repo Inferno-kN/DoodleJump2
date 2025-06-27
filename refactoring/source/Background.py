@@ -1,5 +1,5 @@
 import pygame
-from refactoring.cfg.config import *
+from refactoring.cfg.config import WIDTH, HEIGHT, background
 
 
 class Background:
