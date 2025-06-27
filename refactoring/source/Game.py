@@ -14,12 +14,12 @@ class Game:
         self.__score = Score()
         self.__background = Background()
         self.__doodler = Doodler(self.__score, 100, 100)
-        self.__storage_manager = StorageManager()  # Создаем экземпляр StorageManager
+        self.__storage_manager = StorageManager()
 
     def draw(self, surface, score):
-        lose_text_color = (255, 0, 0)  # красный
-        score_text_color = (0, 255, 0)  # зеленый
-        restart_text_color = (0, 0, 255)  # синий
+        lose_text_color = (255, 0, 0)
+        score_text_color = (0, 255, 0)
+        restart_text_color = (0, 0, 255)
 
         text1 = self.font.render("Вы проиграли!", True, lose_text_color)
         text_rectangle1 = text1.get_rect(center=(config.WIDTH / 2, config.HEIGHT / 2 - 20))
@@ -40,8 +40,7 @@ class Game:
     def game_over(self, score):
         if not isinstance(score, int): raise TypeError
         self.__running = False
-        #score = self.__score.get_score()  # получаем счёт
-        self.__storage_manager.write(score)  # сохраняем счёт
+        self.__storage_manager.write(score)
 
     def restart_game(self):
         self.__score = Score()

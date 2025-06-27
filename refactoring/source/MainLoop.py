@@ -29,7 +29,6 @@ class MainLoop:
                 self.__clock.tick(FPS)
                 self.update()
                 self.draw()
-            #self.check_is_running()
             if self.__game.get_is_running() is False and self.__is_game_over_show is False:
                 self.__is_game_over_show = True
                 self.handle_events()
