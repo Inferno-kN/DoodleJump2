@@ -87,7 +87,7 @@ class Field:
 
     def update(self): pass
 
-    def remove_and_add_platforms(self):
+    def reset_platforms(self):
         for platform in self.__platforms[:]:
             if platform.get_top() > HEIGHT:
                 self.__platforms.remove(platform)
@@ -123,7 +123,7 @@ class Field:
             scroll_amount = abs(self.__doodler.get_y_speed())
 
             self.update_platforms_positions(scroll_amount)
-            self.remove_and_add_platforms()
+            self.reset_platforms()
             self.balance_platforms()
             self.update_doodler_position(scroll_amount)
 
