@@ -10,10 +10,11 @@ class Game:
     def __init__(self):
         self.font = pygame.font.Font(None, 48)
         self.__running = True
+        if not isinstance(self.__running, bool): raise TypeError
         self.__score = Score()
         self.__background = Background()
         self.__doodler = Doodler(self.__score, 100, 100)
-        self.__storage_manager = StorageManager(config.records)
+        self.__storage_manager = StorageManager()
 
     def draw(self, surface, score):
         lose_text_color = (255, 0, 0)

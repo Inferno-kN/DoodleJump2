@@ -3,11 +3,13 @@ import tkinter, json
 from tkinter import *
 from refactoring.source.MainLoop import MainLoop
 from refactoring.source.StorageManager import StorageManager
+from refactoring.cfg import config
+
 
 class GUI:
     def __init__(self, window):
         self.window = window
-        self.__directory = StorageManager()
+        self.__directory = StorageManager(config.records)
         #self.__background = Background()
         window.title("The Little Alien")
         window.geometry('800x600')
