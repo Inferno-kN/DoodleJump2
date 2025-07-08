@@ -36,10 +36,14 @@ class Game:
         if not isinstance(self.__running, bool): raise TypeError
         return self.__running
 
+    def set_running(self, value):
+        self.__running = value
+
     def game_over(self, score):
         if not isinstance(score, int): raise TypeError
         self.__running = False
         self.__storage_manager.write(score)
+        return score
 
     def restart_game(self):
         self.__score = Score()
