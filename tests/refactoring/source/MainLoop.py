@@ -1,4 +1,3 @@
-import sys
 import pygame
 from refactoring.cfg.config import *
 from refactoring.source.Score import Score
@@ -43,7 +42,7 @@ class MainLoop:
             if event.type == pygame.QUIT:
                 self.__game.game_over(self.__score.get_score())
                 pygame.quit()
-                sys.exit()
+                exit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r and self.__game.get_is_running() is False:
                     self.restart()
