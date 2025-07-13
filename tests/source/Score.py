@@ -1,5 +1,5 @@
 import pygame
-from refactoring.cfg.config import BLACK
+from configs.config import BLACK
 
 class Score:
     def __init__(self):

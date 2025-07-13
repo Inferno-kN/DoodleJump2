@@ -1,8 +1,8 @@
 import pygame
-from refactoring.cfg.config import *
-from refactoring.source.Score import Score
-from refactoring.source.Game import Game
-from refactoring.source.Field import Field
+from configs.config import *
+from source.Score import Score
+from source.Game import Game
+from source.Field import Field
 
 class MainLoop:
     def __init__(self):

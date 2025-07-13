@@ -1,11 +1,11 @@
 import random
-from refactoring.cfg.config import *
-from refactoring.source.AbstractPlatform import AbstractPlatform
-from refactoring.source.BrokenPlatform import BrokenPlatform
-from refactoring.source.SimplePlatform import SimplePlatform
-from refactoring.source.Background import Background
-from refactoring.source.Doodler import Doodler
-from refactoring.source.Score import Score
+from configs.config import *
+from source.AbstractPlatform import AbstractPlatform
+from source.BrokenPlatform import BrokenPlatform
+from source.SimplePlatform import SimplePlatform
+from source.Background import Background
+from source.Doodler import Doodler
+from source.Score import Score
 
 class Field:
 

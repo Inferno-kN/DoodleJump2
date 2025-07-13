@@ -1,5 +1,5 @@
 import pygame
-from refactoring.cfg.config import *
+from configs.config import *
 
 class AbstractPlatform:
     def __init__(self, x, y, image_path=None):

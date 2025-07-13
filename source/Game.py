@@ -1,9 +1,9 @@
 import pygame
-from refactoring.source.Doodler import Doodler
-from refactoring.source.Score import Score
-from refactoring.cfg import config
-from refactoring.source.Background import Background
-from refactoring.source.StorageManager import StorageManager
+from source.Doodler import Doodler
+from source.Score import Score
+from configs import config
+from source.Background import Background
+from source.StorageManager import StorageManager
 
 
 class Game:

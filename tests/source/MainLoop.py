@@ -1,9 +1,8 @@
 import pygame
-from refactoring.cfg.config import *
-from refactoring.source.Score import Score
-from refactoring.source.Game import Game
-from refactoring.source.Field import Field
-from refactoring.source.Background import Background
+from configs.config import *
+from source.Score import Score
+from source.Game import Game
+from source.Field import Field
 
 class MainLoop:
     def __init__(self):
@@ -12,7 +11,6 @@ class MainLoop:
         pygame.display.set_caption("The Little Alien")
         self.__clock = pygame.time.Clock()
         self.__score = Score()
-        self.__background = Background()
         self.__game = Game()
         self.__is_game_over_show = False
         self.__field = Field(self.__score)
@@ -23,16 +21,16 @@ class MainLoop:
     def run(self):
         while True:
             self.handle_events()
-            if self.__game.get_is_running():
+            if self.__game.is_running():
                 if self.__is_game_over_show:
                     self.__is_game_over_show = False
                 self.__clock.tick(FPS)
                 self.update()
                 self.draw()
-            if self.__game.get_is_running() is False and self.__is_game_over_show is False:
+            if self.__game.is_running() is False and self.__is_game_over_show is False:
                 self.__is_game_over_show = True
                 self.handle_events()
-                self.__game.draw(self.__screen, self.__score)
+                self.__game.draw_game_over(self.__screen, self.__score)
                 pygame.display.flip()
 
 
@@ -40,11 +38,11 @@ class MainLoop:
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                self.__game.game_over(self.__score.get_score())
+                self.__game.end_game(self.__score.get_score())
                 pygame.quit()
-                exit()
+                sys.exit()
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_r and self.__game.get_is_running() is False:
+                if event.key == pygame.K_r and self.__game.is_running() is False:
                     self.restart()
             elif event.type == pygame.KEYUP:
                 keys = pygame.key.get_pressed()
@@ -62,7 +60,7 @@ class MainLoop:
 
 
     def draw(self):
-        self.__field.draw(self.__screen)
+        self.__field.draw_background_on_field(self.__screen)
         self.__doodler.draw(self.__screen)
         self.__score.draw(self.__screen)
 
@@ -73,13 +71,11 @@ class MainLoop:
 
     def check_is_running(self):
         if self.__doodler.get_position()[1] > HEIGHT:
-            self.__game.game_over(self.__score.get_score())
+            self.__game.end_game(self.__score.get_score())
 
 
     def restart(self):
         self.__game.restart_game()
-        self.__score = Score()
-        self.__background = Background()
         self.__field = Field(self.__score)
         self.__doodler = self.__field.get_doodler()
         self.__platforms = self.__field.get_platforms()

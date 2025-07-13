@@ -1,11 +1,11 @@
 import pytest
-from refactoring.source.AbstractPlatform import AbstractPlatform
-from refactoring.source.Doodler import Doodler
-from refactoring.source.Field import Field
-from refactoring.source.Game import Game
-from refactoring.source.Score import Score
-from refactoring.source.StorageManager import StorageManager
-from src.background import Background
+from source.AbstractPlatform import AbstractPlatform
+from source.Doodler import Doodler
+from source.Field import Field
+from source.Game import Game
+from source.Score import Score
+from source.StorageManager import StorageManager
+from source.Background import Background
 
 
 @pytest.mark.parametrize('x, expected_result',
@@ -80,7 +80,7 @@ def test_generate_platforms_negative(platform_count, expected_result):
                          ])
 
 def test_game_over_positive(score, expected_result):
-    assert Game().game_over(score) == expected_result
+    assert Game().end_game(score) == expected_result
 
 
 @pytest.mark.parametrize('score, expected_result',
@@ -92,7 +92,7 @@ def test_game_over_positive(score, expected_result):
 
 def test_game_over_negative(score, expected_result):
     with pytest.raises(expected_result):
-        Game().game_over(score)
+        Game().end_game(score)
 
 
 @pytest.mark.parametrize('running, expected_result',
@@ -103,7 +103,7 @@ def test_game_over_negative(score, expected_result):
                          ])
 
 def test_get_is_running_positive(running, expected_result):
-    assert Game().get_is_running() == expected_result
+    assert Game().is_running() == expected_result
 
 
 @pytest.mark.parametrize('running, expected_result',
@@ -116,7 +116,7 @@ def test_get_is_running_negative(running, expected_result):
     game = Game()
     game.set_running(running)
     with pytest.raises(expected_result):
-        game.get_is_running()
+        game.is_running()
 
 
 

@@ -1,5 +1,5 @@
-from refactoring.cfg.config import simple_platform
-from refactoring.source.AbstractPlatform import AbstractPlatform
+from configs.config import simple_platform
+from source.AbstractPlatform import AbstractPlatform
 
 class SimplePlatform(AbstractPlatform):
 

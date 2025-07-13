@@ -1,11 +1,11 @@
 import random
-from refactoring.cfg.config import *
-from refactoring.source.AbstractPlatform import AbstractPlatform
-from refactoring.source.BrokenPlatform import BrokenPlatform
-from refactoring.source.SimplePlatform import SimplePlatform
-from refactoring.source.Background import Background
-from refactoring.source.Doodler import Doodler
-from refactoring.source.Score import Score
+from configs.config import *
+from source.AbstractPlatform import AbstractPlatform
+from source.BrokenPlatform import BrokenPlatform
+from source.SimplePlatform import SimplePlatform
+from source.Background import Background
+from source.Doodler import Doodler
+from source.Score import Score
 
 class Field:
 
@@ -66,15 +66,10 @@ class Field:
         return platforms
 
 
-    def draw(self, screen):
-        self.__background.draw(screen)
+    def draw_background_on_field(self, screen):
+        self.__background.draw_background(screen)
         for platform in self.__platforms:
             platform.draw(screen)
-
-    def restart_game(self, platform_count):
-        self.__background = Background()
-        self.__platforms = self.generate_platforms(platform_count)
-        self.__doodler = Doodler(self.__score,100, 100)
 
     def get_platforms(self):
         return self.__platforms

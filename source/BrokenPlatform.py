@@ -1,5 +1,5 @@
-from refactoring.cfg.config import broken_platform
-from refactoring.source.AbstractPlatform import AbstractPlatform
+from configs.config import broken_platform
+from source.AbstractPlatform import AbstractPlatform
 
 class BrokenPlatform(AbstractPlatform):
 

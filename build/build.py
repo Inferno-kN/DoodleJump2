@@ -1,6 +1,6 @@
 """
 Скрипт сборки проекта DoodleJump2 с учетом PyInstaller и динамических путей к ресурсам.
-Использует конфигурацию, где ресурсы находятся в папке refactoring/rsrcs и файл records.json.
+Использует конфигурацию, где ресурсы находятся в папке refactoring/resources и файл records.json.
 """
 import os
 import sys
@@ -13,8 +13,8 @@ ONEFILE = True
 WINDOWED = False
 
 # Папки и файлы ресурсов
-# Включаем всю папку refactoring/rsrcs и файл records.json
-RESOURCE_DIRS = ["refactoring/rsrcs"]
+# Включаем всю папку refactoring/resources и файл records.json
+RESOURCE_DIRS = ["refactoring/resources"]
 RESOURCE_FILES = ["records.json"]
 
 # Формируем аргументы для PyInstaller
@@ -31,13 +31,13 @@ def make_add_data(path):
     dst = os.path.basename(path) if os.path.isfile(path) else os.path.basename(path)
     # но лучше явно:
     # dst = "rsrs"  для каталогов, и "rsrs/records.json" для файла
-    return f"{path}{sep}rsrcs"
+    return f"{path}{sep}resources"
 
 
 # Добавляем каталоги
 for d in RESOURCE_DIRS:
     if os.path.isdir(d):
-        opts += ["--add-data", f"{d}{';' if sys.platform.startswith('win') else ':'}rsrcs"]
+        opts += ["--add-data", f"{d}{';' if sys.platform.startswith('win') else ':'}resources"]
     else:
         print(f"[ERROR] Директория ресурса не найдена: {d}", file=sys.stderr)
         sys.exit(1)

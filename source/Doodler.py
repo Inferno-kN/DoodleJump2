@@ -1,7 +1,7 @@
 import pygame
-from refactoring.cfg.config import *
-from refactoring.source.Score import Score
-from refactoring.source.BrokenPlatform import BrokenPlatform
+from configs.config import *
+from source.Score import Score
+from source.BrokenPlatform import BrokenPlatform
 
 
 class Doodler:

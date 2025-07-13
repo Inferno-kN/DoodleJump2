@@ -1,5 +1,5 @@
 import pygame
-from refactoring.cfg.config import WIDTH, HEIGHT, background
+from configs.config import WIDTH, HEIGHT, background
 
 
 class Background:
@@ -11,7 +11,7 @@ class Background:
         self.__speed = 1
         if not isinstance(self.__speed, int): raise TypeError
 
-    def draw(self, screen):
+    def draw_background(self, screen):
         screen.blit(self.__image, self.__rect)
 
     def update(self):
