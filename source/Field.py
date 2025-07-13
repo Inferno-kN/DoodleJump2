@@ -66,15 +66,10 @@ class Field:
         return platforms
 
 
-    def draw(self, screen):
-        self.__background.draw(screen)
+    def draw_background_on_field(self, screen):
+        self.__background.draw_background(screen)
         for platform in self.__platforms:
             platform.draw(screen)
-
-    def restart_game(self, platform_count):
-        self.__background = Background()
-        self.__platforms = self.generate_platforms(platform_count)
-        self.__doodler = Doodler(self.__score,100, 100)
 
     def get_platforms(self):
         return self.__platforms

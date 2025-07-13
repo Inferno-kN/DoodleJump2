@@ -91,7 +91,7 @@ class Doodler:
 
     def validate_platforms(self, platforms):
         if not isinstance(platforms, list):
-            raise TypeError("Platforms must be a list")
+            raise TypeError
 
     def update_doodler_rect(self):
         self.__doodler_rect.x = self.__x
@@ -125,8 +125,3 @@ class Doodler:
         self.validate_platforms(platforms)
         self.update_doodler_rect()
         return self.process_platforms(platforms)
-
-
-
-
-
