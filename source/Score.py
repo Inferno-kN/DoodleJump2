@@ -17,3 +17,6 @@ class Score:
     def get_score(self):
         if not isinstance(self.__score, int): raise TypeError
         return self.__score
+
+    def reset(self):
+        self.__score = 0
