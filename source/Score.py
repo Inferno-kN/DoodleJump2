@@ -10,7 +10,7 @@ class Score:
         if not isinstance(self.__score, int): raise TypeError
         self.__score += 30
 
-    def draw(self, surface):
+    def draw_score(self, surface):
         text = self.__font.render(f"Счёт: {self.__score}", True, BLACK)
         surface.blit(text, (10, 10))
 

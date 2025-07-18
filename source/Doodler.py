@@ -49,7 +49,7 @@ class Doodler:
         elif self.__x > WIDTH:
             self.__x = 0
 
-    def draw(self, screen):
+    def draw_doodler(self, screen):
         screen.blit(self.__image, (self.__x, self.__y))
 
     def jump(self):
