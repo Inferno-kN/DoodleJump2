@@ -26,7 +26,7 @@ class MainLoop:
                     self.__is_game_over_show = False
                 self.__clock.tick(FPS)
                 self.update()
-                self.draw()
+                self.draw_objects()
             if self.__game.is_running() is False and self.__is_game_over_show is False:
                 self.__is_game_over_show = True
                 self.handle_events()
@@ -59,10 +59,10 @@ class MainLoop:
         self.__field.scroll_screen()
 
 
-    def draw(self):
+    def draw_objects(self):
         self.__field.draw_background_on_field(self.__screen)
-        self.__doodler.draw(self.__screen)
-        self.__score.draw(self.__screen)
+        self.__doodler.draw_doodler(self.__screen)
+        self.__score.draw_score(self.__screen)
 
         self.check_is_running()
 
@@ -73,15 +73,12 @@ class MainLoop:
         if self.__doodler.get_position()[1] > HEIGHT:
             self.__game.end_game(self.__score.get_score())
 
-
     def restart(self):
         self.__game.restart_game()
+        self.__score.reset()
         self.__field = Field(self.__score)
         self.__doodler = self.__field.get_doodler()
         self.__platforms = self.__field.get_platforms()
-        self.__game_score = 0
-
-        self.run()
 
 
 

@@ -17,7 +17,7 @@ class AbstractPlatform:
     def get_top(self):
         return self.__rectangle.top
 
-    def draw(self, screen):
+    def draw_abstract_platform(self, screen):
         screen.blit(self.__image, self.__rectangle)
 
     def get_position(self):

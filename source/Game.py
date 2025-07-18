@@ -1,8 +1,6 @@
 import pygame
-from source.Doodler import Doodler
 from source.Score import Score
 from configs import config
-from source.Background import Background
 from source.StorageManager import StorageManager
 
 
@@ -10,6 +8,8 @@ class Game:
     def __init__(self):
         self.font = pygame.font.Font(None, 48)
         self.__running = True
+        self.__score = Score()
+        self.__storage_manager = StorageManager(config.records)
 
 
     def draw_game_over(self, surface, score):
@@ -39,13 +39,8 @@ class Game:
     def end_game(self, score):
         if not isinstance(score, int): raise TypeError
         self.__running = False
-        self.__storage_manager = StorageManager(config.records)
-        self.__storage_manager.write(score)  #пометка исправить на это StorageManager(config.records).write(score)
+        self.__storage_manager.write(score)
         return score
 
     def restart_game(self):
-        self.__score = Score()
-        Doodler(self.__score, 100, 100)
-        Background()
         self.__running = True
-

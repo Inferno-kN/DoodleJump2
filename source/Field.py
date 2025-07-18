@@ -69,7 +69,7 @@ class Field:
     def draw_background_on_field(self, screen):
         self.__background.draw_background(screen)
         for platform in self.__platforms:
-            platform.draw(screen)
+            platform.draw_abstract_platform(screen)
 
     def get_platforms(self):
         return self.__platforms
