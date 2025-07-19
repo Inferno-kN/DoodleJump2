@@ -1,8 +1,8 @@
 import pygame
 from configs.config import *
-from source.Score import Score
-from source.Game import Game
-from source.Field import Field
+from src.Score import Score
+from src.Game import Game
+from src.Field import Field
 
 class MainLoop:
     def __init__(self):

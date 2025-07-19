@@ -1,7 +1,7 @@
 import pygame
-from source.Score import Score
+from src.Score import Score
 from configs import config
-from source.StorageManager import StorageManager
+from src.StorageManager import StorageManager
 
 
 class Game:

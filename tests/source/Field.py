@@ -1,11 +1,11 @@
 import random
 from configs.config import *
-from source.AbstractPlatform import AbstractPlatform
-from source.BrokenPlatform import BrokenPlatform
-from source.SimplePlatform import SimplePlatform
-from source.Background import Background
-from source.Doodler import Doodler
-from source.Score import Score
+from src.AbstractPlatform import AbstractPlatform
+from src.BrokenPlatform import BrokenPlatform
+from src.SimplePlatform import SimplePlatform
+from src.Background import Background
+from src.Doodler import Doodler
+from src.Score import Score
 
 class Field:
 

@@ -1,8 +1,8 @@
 import sys
 import tkinter, json
 from tkinter import *
-from source.MainLoop import MainLoop
-from source.StorageManager import StorageManager
+from src.MainLoop import MainLoop
+from src.StorageManager import StorageManager
 from configs import config
 
 
