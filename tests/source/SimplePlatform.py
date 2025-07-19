@@ -1,5 +1,5 @@
 from configs.config import simple_platform
-from source.AbstractPlatform import AbstractPlatform
+from src.AbstractPlatform import AbstractPlatform
 
 class SimplePlatform(AbstractPlatform):
 

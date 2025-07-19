@@ -1,7 +1,7 @@
 import pygame
 from configs.config import *
-from source.Score import Score
-from source.BrokenPlatform import BrokenPlatform
+from src.Score import Score
+from src.BrokenPlatform import BrokenPlatform
 
 
 class Doodler:

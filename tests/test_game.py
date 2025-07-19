@@ -1,11 +1,11 @@
 import pytest
-from source.AbstractPlatform import AbstractPlatform
-from source.Doodler import Doodler
-from source.Field import Field
-from source.Game import Game
-from source.Score import Score
-from source.StorageManager import StorageManager
-from source.Background import Background
+from src.AbstractPlatform import AbstractPlatform
+from src.Doodler import Doodler
+from src.Field import Field
+from src.Game import Game
+from src.Score import Score
+from src.StorageManager import StorageManager
+from src.Background import Background
 
 
 @pytest.mark.parametrize('x, expected_result',

@@ -1,9 +1,9 @@
 import pygame
-from source.Doodler import Doodler
-from source.Score import Score
+from src.Doodler import Doodler
+from src.Score import Score
 from configs import config
-from source.Background import Background
-from source.StorageManager import StorageManager
+from src.Background import Background
+from src.StorageManager import StorageManager
 
 
 class Game:

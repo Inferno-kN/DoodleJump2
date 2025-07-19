@@ -1,5 +1,5 @@
 from configs.config import broken_platform
-from source.AbstractPlatform import AbstractPlatform
+from src.AbstractPlatform import AbstractPlatform
 
 class BrokenPlatform(AbstractPlatform):
 
