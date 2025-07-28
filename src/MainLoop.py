@@ -69,6 +69,7 @@ class MainLoop:
         if self.__doodler.get_position()[1] > HEIGHT:
             self.__game.end_game(self.__score.get_score())
 
+
     def restart(self):
         self.__game.restart_game()
         self.__score.reset()
