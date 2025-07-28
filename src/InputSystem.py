@@ -5,7 +5,7 @@ class InputSystem:
 
     def handle_events(self, events):
         for event in events:
-            # Проходим по всем сохраненным событям (по кодам нажатых клавиш)
+
             for key_code in self.subscriptions.keys():
                 if event.type == key_code:
                     callback = self.subscriptions[key_code]
