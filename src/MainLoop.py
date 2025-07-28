@@ -20,12 +20,35 @@ class MainLoop:
         self.__doodler = self.__field.get_doodler()
         self.__platforms = self.__field.get_platforms()
         self.__game_score = 0
-        self.__input_system = InputSystem(self.__game, self.__score, self.__field, self)
 
+        self.__input_system = InputSystem()
+        self.__input_system.sub(pygame.QUIT, self.quit_game)
+        self.__input_system.sub(pygame.KEYDOWN, self.restart)
+        self.__input_system.sub(pygame.KEYUP, self.update_doodler_motion)
+
+    def quit_game(self, event):
+        self.__game.end_game(self.__score.get_score())
+        pygame.quit()
+        sys.exit()
+
+    def restart(self, event):
+        if not (event.key == pygame.K_r and self.__game.is_running() is False):
+            return
+
+        self.__game.restart_game()
+        self.__score.reset()
+        self.__field = Field(self.__score)
+        self.__doodler = self.__field.get_doodler()
+        self.__platforms = self.__field.get_platforms()
+
+    def update_doodler_motion(self, event):
+        keys = pygame.key.get_pressed()
+        self.__doodler.update_motion(keys, self.__platforms)
 
     def run(self):
         while True:
-            self.process_handle_events()
+            events = list(pygame.event.get())
+            self.process_events(events)
 
             if self.__game.is_running():
                 if self.__is_game_over_show:
@@ -36,14 +59,12 @@ class MainLoop:
 
             if not self.__game.is_running() and self.__is_game_over_show is False:
                 self.__is_game_over_show = True
-                self.process_handle_events()
+                # self.process_events(events)
                 self.__game.draw_game_over(self.__screen, self.__score)
                 pygame.display.flip()
 
-
-    def process_handle_events(self):
-        self.__input_system.get_handle_events()
-
+    def process_events(self, events):
+        self.__input_system.handle_events(events)
 
     def update(self):
         keys = pygame.key.get_pressed()
@@ -56,7 +77,6 @@ class MainLoop:
         self.__field.update()
         self.__field.scroll_screen()
 
-
     def draw_objects(self):
         self.__field.draw_background_on_field(self.__screen)
         self.__doodler.draw_doodler(self.__screen)
@@ -64,16 +84,6 @@ class MainLoop:
         self.check_is_running()
         pygame.display.flip()
 
-
     def check_is_running(self):
         if self.__doodler.get_position()[1] > HEIGHT:
             self.__game.end_game(self.__score.get_score())
-
-
-    def restart(self):
-        self.__game.restart_game()
-        self.__score.reset()
-        self.__field = Field(self.__score)
-        self.__doodler = self.__field.get_doodler()
-        self.__platforms = self.__field.get_platforms()
-        self.__input_system = InputSystem(self.__game, self.__score, self.__field, self)
